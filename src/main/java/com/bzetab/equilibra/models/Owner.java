@@ -24,6 +24,9 @@ public class Owner {
     @Column(name = "unique_code",nullable = false)
     private String uniqueCode;
 
+    @Column(name = "is_active")
+    private Boolean isActive;
+
     //Log
     @CreationTimestamp
     @Column(name = "created_at", nullable = false)
