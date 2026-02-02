@@ -189,4 +189,24 @@ public class OwnerServiceTest {
             verify(ownerRepository).save(owner);
         }
     }
+
+    @Test
+    void shouldToggleIsActiveFromFalseToTrue_andSaveOwner() {
+
+        String uniqueCode = "ABC123";
+        Owner owner = Owner.builder()
+                .uniqueCode(uniqueCode)
+                .isActive(false)
+                .build();
+
+        when(ownerRepository.findByUniqueCode(uniqueCode))
+                .thenReturn(Optional.of(owner));
+
+        when(ownerRepository.save(owner)).thenReturn(owner);
+
+        Owner result = ownerService.updatedStatusOwner(uniqueCode);
+
+        assertTrue(result.getIsActive());
+        verify(ownerRepository).save(owner);
+    }
 }
