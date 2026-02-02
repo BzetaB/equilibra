@@ -49,7 +49,7 @@ public class OwnerServiceImpl implements OwnerService {
 
         Owner existingOwner = this.getOwnerByUniqueCode(uniqueCode);
 
-        existingOwner.setIsActive(false);
+        existingOwner.setIsActive(!existingOwner.getIsActive());
 
         return ownerRepository.save(existingOwner);
     }
