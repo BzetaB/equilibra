@@ -1,9 +1,5 @@
 package com.bzetab.equilibra.account.entity;
 
-import com.bzetab.equilibra.creditCards.entity.CreditCardPayment;
-import com.bzetab.equilibra.loans.entity.Loan;
-import com.bzetab.equilibra.loans.entity.LoanPayment;
-import com.bzetab.equilibra.transactions.entity.Transaction;
 import com.bzetab.equilibra.owner.entity.Owner;
 import com.bzetab.equilibra.account.enums.AccountType;
 import com.bzetab.equilibra.account.enums.CurrencyType;
@@ -13,8 +9,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -57,16 +51,4 @@ public class Account {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id", nullable = false)
     private Owner owner;
-
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Transaction> transactions = new HashSet<>();
-
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<CreditCardPayment> creditCardPayments = new HashSet<>();
-
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Loan> loans = new HashSet<>();
-
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<LoanPayment> loanPayments = new HashSet<>();
 }
