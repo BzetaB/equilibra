@@ -1,8 +1,8 @@
 package com.bzetab.equilibra.owner.service;
 
-import com.bzetab.equilibra.owner.entity.Owner;
-import com.bzetab.equilibra.owner.repository.OwnerRepository;
-import com.bzetab.equilibra.owner.service.impl.OwnerServiceImpl;
+import com.bzetab.equilibra.repository.model.Owner;
+import com.bzetab.equilibra.repository.OwnerRepository;
+import com.bzetab.equilibra.business.impl.OwnerServiceImpl;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
